@@ -1,0 +1,14 @@
+<!-- app/views/auctions/index.html.erb -->
+<h1>All Auctions</h1>
+
+<%= link_to "New Auction", new_auction_path %>
+
+<% @auction.each do |auction| %>
+  <h2><%= auction.title %> <small><%= link_to "View Auction", auction_path(auction) %></small></h2>
+
+<p><%= auction.details %></p>
+<p><%= auction.ends %></p>
+<p><%= auction.reserve %></p>
+<p><%= auction.current %></p>
+  <hr>
+<% end %>

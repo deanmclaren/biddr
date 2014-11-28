@@ -1,0 +1,33 @@
+<!-- app/views/auctions/show.html.erb -->
+<p>
+  <%= link_to "home", auctions_path %>
+  <%= link_to "edit", edit_auction_path(@auction) %>
+</p>
+<h1><%= @auction.title %></h1>
+<p><%= @auction.details %></p>
+<p><%= @auction.ends %></p>
+<p><%= @auction.reserve %></p>
+<p>Current Price: <%= @auction.current %></p>
+
+
+<%= form_for [@auction, Bid.new] do |f| %>
+
+
+
+
+
+
+
+   <%= f.number_field :price %><br>
+   <%= f.date_field :day, value: Date.today %>
+
+   <%= f.submit %>
+<% end %>
+
+<hr>
+Previous Bids
+<% @bid.each do |bid| %>
+  <p><%= bid.price %>
+  on <%= bid.day %></p>
+  <hr>
+<% end %>
